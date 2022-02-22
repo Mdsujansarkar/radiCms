@@ -29,10 +29,22 @@
         <div  x-data="{
             title: 'Title, logo, tag, etc change Option.'
           }">
-        <a href="{{ route('setting') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item" x-bind:title="title">
-            <i class="fas fa-cogs mr-3"></i>
-            Settings
-        </a>
+            <a href="{{ route('setting') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item" x-bind:title="title">
+                <i class="fas fa-cogs mr-3"></i>
+                Settings
+            </a>
+        </div>
+        <div  x-data="{
+            title: 'Title, logo, tag, etc change Option.'
+          }">
+            <a href="{{ route('meta.tag') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item" x-bind:title="title">
+                <i class="fas fa-sticky-note mr-3"></i>
+                Meta Tag
+            </a>
         </div>
     </nav>
+
 </aside>
+
+
+

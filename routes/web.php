@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Backend\MetaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\SettingController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +25,8 @@ Route::post('/setting',[SettingController::class, 'store'] )->name('web.setting'
 
 
 Route::get('/setting/view',[SettingController::class, 'show']);
+
+Route::get('/setting/view/{id}',[SettingController::class, 'edit']);
+Route::put('/setting/update/{id}',[SettingController::class, 'update'])->name('web.setting.update');
+
+Route::get('/meta/tag', [MetaController::class, 'index'])->name('meta.tag');

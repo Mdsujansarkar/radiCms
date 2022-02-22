@@ -83,7 +83,10 @@ class SettingController extends Controller
      */
     public function show()
     {
-        return view('backend.settings.settingView');
+        $setting = Setting::select('id','site_title','site_tagline','websit_logo','web_sitfav')->get();
+        return view('backend.settings.settingView',[
+            'setting' => $setting,
+        ]);
     }
 
     /**
@@ -94,7 +97,10 @@ class SettingController extends Controller
      */
     public function edit($id)
     {
-        //
+        $setting = Setting::find($id);
+        return view('backend.settings.settingEdit',[
+            'setting' => $setting,
+        ]);
     }
 
     /**
@@ -106,7 +112,42 @@ class SettingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $setting = Setting::findOrFail($id);
+        $request ->validate([
+
+            'site_title'    => 'string|max:255|nullable',
+            'site_tagline'  => 'string|max:255|nullable',
+            'websit_logo'   => 'image|mimes:jpeg,png,jpg,svg|max:2048',
+            'web_sitfav'    => 'image|mimes:jpeg,png,jpg,svg|max:2048',
+        ]);
+        $input = $request->all();
+  
+        if($request->hasFile('websit_logo')) {
+
+            $image = $request->file('websit_logo');
+            $destinationPath = 'backend/logo/';
+            $logoImage = date('YmdHis') . "-" . $image->getClientOriginalName();
+            $image->move($destinationPath, $logoImage);
+            $input['websit_logo'] = "$logoImage";
+
+        }else{
+
+            unset($input['websit_logo']);
+        }
+        if($request->hasFile('web_sitfav')) {
+
+            $imageFave = $request->file('web_sitfav');
+            $destinationPath = 'backend/favicon/';
+            $favImage = date('YmdHis') . "-" . $imageFave->getClientOriginalName();
+            $imageFave->move($destinationPath, $favImage);
+            $input['web_sitfav'] = "$favImage";
+        }
+        else{
+            
+            unset($input['web_sitfav']);
+        }
+
+      return  $setting->update($input);
     }
 
     /**

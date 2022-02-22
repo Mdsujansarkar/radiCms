@@ -3,9 +3,6 @@
 <main class="w-full flex-grow p-6">
     <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
         <main class="w-full flex-grow p-6">
-            <a href="{{ URL::to('/setting/view') }}" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-                Setting Edit
-            </a>
             <div class="flex flex-wrap">
                 {{-- Hello Html --}}
                 @if(session('message'))
@@ -21,11 +18,13 @@
 
                 <div class="w-full lg:w-full my-6 pr-0 lg:pr-2">
                     <div class="leading-loose">
-                        <form class="p-10 bg-white rounded shadow-xl" action="{{ route('web.setting') }}" enctype="multipart/form-data"  method="post">
+                        <form class="p-10 bg-white rounded shadow-xl" action="{{ route('web.setting.update', $setting->id) }}" enctype="multipart/form-data"  method="post">
                             @csrf
+                            @method('PUT')
+                            <input type="hidden" name="id" value="{{ $setting->id }}">
                             <div class="mt-2">
                                 <label class="block text-sm text-gray-600" for="title">Web Site Title</label>
-                                <input class="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded" id="title" name="site_title" type="text" placeholder="Web Site Title" aria-label="Web Site Title">
+                                <input class="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded" id="title" name="site_title" type="text" value="{{ $setting->site_title }}" aria-label="Web Site Title">
                                 
                                     @if($errors->has('site_title'))
                                         <span class="block text-sm text-red-600"><i>{{ $errors->first('site_title') }}<i></span>
@@ -33,7 +32,7 @@
                             </div>
                             <div class="mt-2">
                                 <label class="block text-sm text-gray-600" for="site_tagline">Web Site Tagline</label>
-                                <input class="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded" id="site_tagline" name="site_tagline" type="text" placeholder="Web Site Tagline" aria-label="Web Site Tagline">
+                                <input class="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded" id="site_tagline" name="site_tagline" type="text" value="{{ $setting->site_tagline }}" aria-label="Web Site Tagline">
                                     @if($errors->has('site_tagline'))
                                     <span class="block text-sm text-red-600"><i>{{ $errors->first('site_tagline'); }}<i></span>
                                     @endif
@@ -57,8 +56,8 @@
                                                         Select a photo
                                                     </p>
                                                 </div>
+                                                <img src="{{ asset('/backend/logo/'.$setting ->websit_logo) }}" width="80" height="80">
                                                 <input class="opacity-0" accept="image/*" type='file' name="websit_logo" id="imgInp"/>
-                                                <img id="blah" src="#" alt="your image" width="200px" height="200px"/>
                                                 @if($errors->has('websit_logo'))
                                                     <span class="block text-sm text-red-600"><i>{{ $errors->first('websit_logo') }}<i></span>
                                                 @endif
@@ -84,8 +83,8 @@
                                                     <p class="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">
                                                         Select a photo</p>
                                                 </div>
+                                                <img src="{{ asset('/backend/favicon/'.$setting ->web_sitfav) }}" width="60" height="60">
                                                 <input type="file" class="opacity-0" accept="image/*" type='file' id="favImage" name="web_sitfav" />
-                                                <img id="fav" src="#" alt="your image" height="200px" width="200px"/>
                                                 @if($errors->has('web_sitfav'))
                                                     <span class="block text-sm text-red-600"><i>{{ $errors->first('web_sitfav') }}<i></span>
                                                 @endif
