@@ -17,6 +17,8 @@ Route::get('/', [HomeController::class, 'home']);
 Route::get('/achivement', [HomeController::class, 'achivement'])->name('achivement');
 Route::get('/whatToDo', [HomeController::class, 'whatToDo'])->name('whatToDo');
 Route::get('/how-to-do', [HomeController::class, 'howToDo'])->name('howToDo');
+Route::get('/lasts/activities', [HomeController::class, 'lastActiVites'])->name('lastActivites');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
 /**
  * Backend Code

@@ -1,14 +1,13 @@
-@extends('frontend.master')
-@section('meta')
+<?php $__env->startSection('meta'); ?>
 
-  @foreach ($cvmetaTags as $meta_tag_single)
-  <title>{{ __('লাকসাম-মনোহরগঞ্জ | দেলোয়ার হোসেন ফারুক') }}</title>
-  <meta content="{{ $meta_tag_single->meta_tag }}" name="keywords">
-  <meta content="{{ $meta_tag_single->site_tagline }}" name="description">
-  @endforeach
+  <?php $__currentLoopData = $cvmetaTags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $meta_tag_single): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+  <title><?php echo e(__('লাকসাম-মনোহরগঞ্জ | দেলোয়ার হোসেন ফারুক')); ?></title>
+  <meta content="<?php echo e($meta_tag_single->meta_tag); ?>" name="keywords">
+  <meta content="<?php echo e($meta_tag_single->site_tagline); ?>" name="description">
+  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-  @endsection
-@section('home')
+  <?php $__env->stopSection(); ?>
+<?php $__env->startSection('home'); ?>
 <style>
   
     .title-single{
@@ -46,13 +45,14 @@
                            
             <div class="left-1">
                 <div class="img-blog-box-b">
-                    <img src="{{ asset('frontend/assets/images/politicalnews/3814.jpg') }}" alt="" class="img-b img-fluid img-responsive">
+                    <img src="<?php echo e(asset('frontend/assets/images/politicalnews/3814.jpg')); ?>" alt="" class="img-b img-fluid img-responsive">
                 </div>
                 <div class="blog-body">                
                     <div class="blog-header">
                         <h5 class="blog-title-left">
                             <a href="https://dorponnews24.com/archives/4345"  target="_blank">                
-                                {{ __('কুমিল্লার স্বাস্থ্য বিভাগকে আওয়ামী লীগ নেতা ফারুকের ২০০ পিপিই প্রদান') }}
+                                <?php echo e(__('কুমিল্লার স্বাস্থ্য বিভাগকে আওয়ামী লীগ নেতা ফারুকের ২০০ পিপিই প্রদান')); ?>
+
                             </a>
                         </h5>
                     </div>
@@ -60,14 +60,15 @@
             </div>  
             <div class="left-2">
                 <div class="img-blog-box-b">
-                    <img src="{{ asset('frontend/assets/images/politicalnews/1355.jpg') }}" alt="" class="img-b img-fluid img-responsive">
+                    <img src="<?php echo e(asset('frontend/assets/images/politicalnews/1355.jpg')); ?>" alt="" class="img-b img-fluid img-responsive">
                 </div>
                 <div class="blog-body">                
                     <div class="blog-header">
                         <h5 class="blog-title-left">    
                             <a href="https://www.jugantor.com/capital/294436/?__cf_chl_captcha_tk__=79a98e50b2f58f28e487199350dccfbec1600525-1588442336-0-AWjd0VsbDcf0A3Qjc1kyr61k5YMxMhEOghYuycwicmSUQs6Eiyt7KQJvqgW8FKHdctH2bR0JPs5Ybw7Exq6NTs_jUCbCxslsJrFv01bgf37sVR3vJjYUx9u0HvOaDbIV8iyE89JQiRqtODke408DTLq1rtNg6HXBIyIoWj-T6TuzhRU34axL0wA_sUDQKaKUm6kH9szFpWm_ee9mpuIGSUWXY2dNCep613WpnmqJJlL14ziQnJZ3igJfKu4YHakU5ET38KPAOxxe6P0M7Ih05lffKYhzo-82uTn2NRvmBFDhKnQHH4FKH7KrfuQGkriBJXPB0kNpMX1fPy0qOjS83G88CGkdOLj8-JlHZNpaYhL1QrfnW7tzagg_J9TxDOKhioCZjjeEKMK4qCgvDZsIUqCzwuWG2NhOe1c0cjr6ndSsByrb8oR-yQj55pu3lID5c5KQbCHsjimmo4ywrL0rpMP13kk6suiAiEXma4hdfxlPhlzGbg4aDta8xExARtYJL8fYYz9hKtgoZq404vZbmAM"  target="_blank">
     
-                                            {{ __('ঢাকা ও কুমিল্লায় পিপিই, মাস্ক, হ্যান্ডগ্লাভস ও হ্যান্ডস্যানিটাইজার বিতরণ') }}
+                                            <?php echo e(__('ঢাকা ও কুমিল্লায় পিপিই, মাস্ক, হ্যান্ডগ্লাভস ও হ্যান্ডস্যানিটাইজার বিতরণ')); ?>
+
                             </a>
                             
                         </h5>
@@ -78,7 +79,7 @@
           </div>
           <div class="col-md-6">
                 <div class="img-blog-box-b">
-                    <img src="{{ asset('frontend/assets/images/politicalnews/8057.jpg') }}" alt="" class="img-b img-fluid img-responsive">
+                    <img src="<?php echo e(asset('frontend/assets/images/politicalnews/8057.jpg')); ?>" alt="" class="img-b img-fluid img-responsive">
                 </div>
                 <div class="blog-body">                
                     <div class="blog-header">
@@ -102,7 +103,7 @@
            
             <div  class="right-1">
                 <div class="img-blog-box-b">
-                    <img src="{{ asset('frontend/assets/images/politicalnews/1335.jpg') }}" alt="" class="img-b img-fluid img-responsive">
+                    <img src="<?php echo e(asset('frontend/assets/images/politicalnews/1335.jpg')); ?>" alt="" class="img-b img-fluid img-responsive">
                 </div>
                 <div class="blog-body">                
                     <div class="blog-header">
@@ -122,7 +123,7 @@
             
             <div  class="right-2">
                 <div class="img-blog-box-b">
-                    <img src="{{ asset('frontend/assets/images/politicalnews/8047.jpg') }}" alt="" class="img-b img-fluid img-responsive">
+                    <img src="<?php echo e(asset('frontend/assets/images/politicalnews/8047.jpg')); ?>" alt="" class="img-b img-fluid img-responsive">
                 </div>
                 <div class="blog-body">                
                     <div class="blog-header">
@@ -142,7 +143,7 @@
           </div> 
            <div class="col-md-4">
            <div class="img-blog-box-b">
-                    <img src="{{ asset('frontend/assets/images/politicalnews/9700.jpg') }}" alt="" class="img-b img-fluid img-responsive">
+                    <img src="<?php echo e(asset('frontend/assets/images/politicalnews/9700.jpg')); ?>" alt="" class="img-b img-fluid img-responsive">
                 </div>
                 <div class="blog-body">                
                     <div class="blog-header">
@@ -162,7 +163,7 @@
                    
             <div class="col-md-4">
              <div class="img-blog-box-b">
-                    <img src="{{ asset('frontend/assets/images/politicalnews/2345.jpg') }}" alt="" class="img-b img-fluid img-responsive">
+                    <img src="<?php echo e(asset('frontend/assets/images/politicalnews/2345.jpg')); ?>" alt="" class="img-b img-fluid img-responsive">
                 </div>
                 <div class="blog-body">                
                     <div class="blog-header">
@@ -182,7 +183,7 @@
                     <div class="col-md-4">
            
              <div class="img-blog-box-b">
-                    <img src="{{ asset('frontend/assets/images/politicalnews/3743.jpg') }}" alt="" class="img-b img-fluid img-responsive">
+                    <img src="<?php echo e(asset('frontend/assets/images/politicalnews/3743.jpg')); ?>" alt="" class="img-b img-fluid img-responsive">
                 </div>
                 <div class="blog-body">                
                     <div class="blog-header">
@@ -202,7 +203,7 @@
             <div class="col-md-4">
                     <div class="left-1">
                 <div class="img-blog-box-b">
-                    <img src="{{ asset('frontend/assets/images/politicalnews/1195.jpg') }}" alt="" class="img-b img-fluid img-responsive">
+                    <img src="<?php echo e(asset('frontend/assets/images/politicalnews/1195.jpg')); ?>" alt="" class="img-b img-fluid img-responsive">
                 </div>
                 <div class="blog-body">                
                     <div class="blog-header">
@@ -221,14 +222,15 @@
             
                     <div class="left-2">
                 <div class="img-blog-box-b">
-                    <img src="{{ asset('frontend/assets/images/politicalnews/1241.jpg') }}" alt="" class="img-b img-fluid img-responsive">
+                    <img src="<?php echo e(asset('frontend/assets/images/politicalnews/1241.jpg')); ?>" alt="" class="img-b img-fluid img-responsive">
                 </div>
                 <div class="blog-body">                
                     <div class="blog-header">
                         <h5 class="blog-title-left">
                             <a href="political-single (6).html" >
 
-                               {{ __('মেয়র পদে আলোচিত প্রার্থী সাবেক কেন্দ্রীয় ছাত্রলীগ নেতা ফারুক')}}
+                               <?php echo e(__('মেয়র পদে আলোচিত প্রার্থী সাবেক কেন্দ্রীয় ছাত্রলীগ নেতা ফারুক')); ?>
+
                             </a>
                             
                         </h5>
@@ -240,7 +242,7 @@
            <div class="col-md-4">
                     <div class="right-1">
                 <div class="img-blog-box-b">
-                    <img src="{{ asset('frontend/assets/images/politicalnews/5284.jpg') }}" alt="" class="img-b img-fluid img-responsive">
+                    <img src="<?php echo e(asset('frontend/assets/images/politicalnews/5284.jpg')); ?>" alt="" class="img-b img-fluid img-responsive">
                 </div>
                 <div class="blog-body">                
                     <div class="blog-header">
@@ -254,13 +256,13 @@
             
                     <div class="right-2">
                 <div class="img-blog-box-b">
-                    <img src="{{ asset('frontend/assets/images/politicalnews/8714.jpg') }}" alt="" class="img-b img-fluid img-responsive">
+                    <img src="<?php echo e(asset('frontend/assets/images/politicalnews/8714.jpg')); ?>" alt="" class="img-b img-fluid img-responsive">
                 </div>
                 <div class="blog-body">                
                     <div class="blog-header">
                         <h5 class="blog-title-right">
                             <a href="political-single (7).html" >
-                                            {{ __('কুমিল্লা ৯ আসনে মনোনয়ন কিনলেন ছাত্রলীগ নেতা ফারুক') }} 
+                                            <?php echo e(__('কুমিল্লা ৯ আসনে মনোনয়ন কিনলেন ছাত্রলীগ নেতা ফারুক')); ?> 
                             </a>
                             
                         </h5>
@@ -314,4 +316,5 @@
         </div>
       </section>
       <!--/ News Grid End /-->
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/oem/Documents/radiCms/resources/views/frontend/home/latest-activity.blade.php ENDPATH**/ ?>

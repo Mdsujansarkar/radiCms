@@ -29,10 +29,10 @@
             <a class="nav-link" href="<?php echo e(route('whatToDo')); ?>">কি করতে চাই </a>
           </li>
 		   <li class="nav-item">
-            <a class="nav-link" href="how-to-do.html">কিভাবে করবো </a>
+            <a class="nav-link" href="<?php echo e(route('howToDo')); ?>">কিভাবে করবো </a>
           </li>
 		  <li class="nav-item">
-            <a class="nav-link" href="latest-activity.html">লাকসাম-মনোহরগঞ্জ   </a>
+            <a class="nav-link" href="<?php echo e(route('lastActivites')); ?>">লাকসাম-মনোহরগঞ্জ   </a>
           </li>
 		  <li class="dropdown nav-item">
             <a href="#" class="nav-link">প্রেস</a>
@@ -53,7 +53,7 @@
           </li>-->
           
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">যোগাযোগ</a>
+            <a class="nav-link" href="<?php echo e(route('contact')); ?>">যোগাযোগ</a>
           </li>
         </ul>
       </div>

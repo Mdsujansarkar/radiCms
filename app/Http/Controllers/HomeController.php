@@ -54,6 +54,20 @@ class HomeController extends Controller
             'cvmetaTags' => $cvmetaTags
         ]);
     }
+    public function lastActivites()
+    {
+        $cvmetaTags = DB::table('metas')->select('id','title_tag','site_tagline','meta_tag')->where('title_tag','latest-activity')->get();
+        return view('frontend.home.latest-activity',[
+            'cvmetaTags' => $cvmetaTags
+        ]);   
+    }
+    public function contact()
+    {
+        $cvmetaTags = DB::table('metas')->select('id','title_tag','site_tagline','meta_tag')->where('title_tag','contact')->get();
+        return view('frontend.home.contact',[
+            'cvmetaTags' => $cvmetaTags
+        ]); 
+    }
     /**
      * Store a newly created resource in storage.
      *
