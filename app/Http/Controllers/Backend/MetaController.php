@@ -37,7 +37,24 @@ class MetaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title_tag'     =>'string|max:1000',
+            'meta_tag'      =>'string|max:1000',
+            'site_tagline'  =>'string|max:1000',
+        ]);
+
+        $input = $request->all();
+
+        try {
+             
+            $meta = Meta::create($input);
+
+            return redirect()->back()->with('message', 'Data Insert Successfully');
+
+        } catch (\Exception $e) {
+
+            return redirect()->back()->with('message', 'Data Not Insert Successfully');
+        }
     }
 
     /**
@@ -46,9 +63,13 @@ class MetaController extends Controller
      * @param  \App\Models\Backend\Meta  $meta
      * @return \Illuminate\Http\Response
      */
-    public function show(Meta $meta)
+    public function show()
     {
-        //
+        $metatags = Meta::select('id','title_tag','meta_tag','site_tagline')->paginate(10);
+
+        return view('backend.seoPanel.metaView',[
+            'metatags' => $metatags,
+        ]);
     }
 
     /**
@@ -57,9 +78,13 @@ class MetaController extends Controller
      * @param  \App\Models\Backend\Meta  $meta
      * @return \Illuminate\Http\Response
      */
-    public function edit(Meta $meta)
+    public function edit($id)
     {
-        //
+         $meta = Meta::find($id);
+         return view('backend.seoPanel.metaEdit',[
+             'meta' =>$meta,
+         ]);
+        
     }
 
     /**
@@ -69,9 +94,18 @@ class MetaController extends Controller
      * @param  \App\Models\Backend\Meta  $meta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Meta $meta)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title_tag'     =>'string|max:1000',
+            'meta_tag'      =>'string|max:1000',
+            'site_tagline'  =>'string|max:1000',
+        ]);
+
+        $meta = Meta::find($id);
+        $input = $request->all();
+        $meta->update($input);
+        return redirect()->back();
     }
 
     /**
@@ -80,8 +114,10 @@ class MetaController extends Controller
      * @param  \App\Models\Backend\Meta  $meta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Meta $meta)
+    public function destroy($id)
     {
-        //
+     $destry = Meta::find($id);
+     $destry->delete();
+     return redirect()->back();
     }
 }

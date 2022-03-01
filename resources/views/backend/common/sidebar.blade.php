@@ -39,7 +39,7 @@
           }">
             <a href="{{ route('meta.tag') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item" x-bind:title="title">
                 <i class="fas fa-sticky-note mr-3"></i>
-                Meta Tag
+                {{ __('Meta Tag') }}
             </a>
         </div>
     </nav>

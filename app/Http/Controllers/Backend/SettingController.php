@@ -71,7 +71,7 @@ class SettingController extends Controller
 
         } catch (\Exception $e) {
             
-            return redirect()->back()->with('message', 'Data Insert Successfully');
+            return redirect()->back()->with('message', 'Data Not Insert Successfully');
         }
     }
 
@@ -147,7 +147,8 @@ class SettingController extends Controller
             unset($input['web_sitfav']);
         }
 
-      return  $setting->update($input);
+        $setting->update($input);
+        return redirect()->back();
     }
 
     /**

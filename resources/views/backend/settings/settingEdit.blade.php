@@ -84,7 +84,7 @@
                                                         Select a photo</p>
                                                 </div>
                                                 <img src="{{ asset('/backend/favicon/'.$setting ->web_sitfav) }}" width="60" height="60">
-                                                <input type="file" class="opacity-0" accept="image/*" type='file' id="favImage" name="web_sitfav" />
+                                                <input type="file" class="opacity-0" accept="image/*" type='file' onchange="loadFile(event)" name="web_sitfav" />
                                                 @if($errors->has('web_sitfav'))
                                                     <span class="block text-sm text-red-600"><i>{{ $errors->first('web_sitfav') }}<i></span>
                                                 @endif
@@ -121,5 +121,14 @@ favImage.onchange = evt => {
     fav.src = URL.createObjectURL(file)
   }
 }
+</script>
+<script>
+         var loadFile = function(event) {
+         var output = document.getElementById('output');
+         output.src = URL.createObjectURL(event.target.files[0]);
+         output.onload = function() {
+         URL.revokeObjectURL(output.src) // free memory
+    }
+  };
 </script>
 @stop
